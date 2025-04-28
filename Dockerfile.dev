@@ -1,0 +1,10 @@
+FROM node:lts-alpine
+
+WORKDIR /usr/app
+# We do not need to copy when working with volumes
+# Advantage of this approach is that this file is meant as an inspiration for a production docker file
+COPY package.json .
+RUN npm install
+COPY . .
+
+CMD ["npm","run", "start"]
