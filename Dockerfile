@@ -10,5 +10,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+# Elastic beanstalk specific for port mapping
+EXPOSE 80
 # Automaticly start nginx
 COPY --from=build /app/build /usr/share/nginx/html
